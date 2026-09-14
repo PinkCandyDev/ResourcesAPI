@@ -1,0 +1,6 @@
+name: ResourcesAPI
+version: '${version}'
+
+main: me.pinkcandy.resourcesAPI.ResourcesAPI
+api-version: '26.2'
+load: POSTWORLD
