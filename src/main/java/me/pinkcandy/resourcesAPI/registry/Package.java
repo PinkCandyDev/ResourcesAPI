@@ -1,5 +1,6 @@
-package me.pinkcandy.resourcesAPI;
+package me.pinkcandy.resourcesAPI.registry;
 
+import org.bukkit.plugin.java.JavaPlugin;
 import org.jspecify.annotations.Nullable;
 
 import java.io.File;
@@ -10,13 +11,27 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-import static me.pinkcandy.resourcesAPI.ResourcesAPI.instance;
+public class Package {
 
-public class Registry {
+    final String name;
+    final JavaPlugin plugin;
+    List<Resource> resources;
 
-    static List<Resource> resources = new ArrayList<>();
+    public Package(String name, JavaPlugin plugin) {
+        this.name = name;
+        this.plugin = plugin;
+        this.resources = new ArrayList<>();
+    }
 
-    public static void registerResource(String name, String path, @Nullable InputStream stream) {
+    public String getName() {
+        return name;
+    }
+
+    public List<Resource> getResources() {
+        return resources;
+    }
+
+    public void insertFile(String name, String path, @Nullable InputStream stream) {
         if (stream == null) {
             throw new IllegalArgumentException("Resource stream is null");
         }

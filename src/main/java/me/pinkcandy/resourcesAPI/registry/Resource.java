@@ -1,4 +1,4 @@
-package me.pinkcandy.resourcesAPI;
+package me.pinkcandy.resourcesAPI.registry;
 
 import java.io.File;
 
