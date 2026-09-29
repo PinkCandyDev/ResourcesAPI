@@ -9,5 +9,6 @@ public interface ResourcePackage {
 
     public String getName();
     public List<Resource> getResources();
-    public void insertFile(String name, String path, @Nullable InputStream stream);
+    public void insertFile(String name, String path, InputStream stream);
+    public void createItem(String name, InputStream stream);
 }

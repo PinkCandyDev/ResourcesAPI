@@ -1,13 +1,9 @@
 package me.pinkcandy.resourcesAPI.packages;
 
+import me.pinkcandy.resourcesAPI.StreamToFile;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,23 +27,12 @@ public class ResourcePackageImpl implements ResourcePackage {
         return resources;
     }
 
-    public void insertFile(String name, String path, @Nullable InputStream stream) {
-        if (stream == null) {
-            throw new IllegalArgumentException("Resource stream is null");
-        }
+    public void insertFile(String name, String path, InputStream stream) {
+        Resource resource = new Resource(name, name, StreamToFile.streamToFile(name, stream));
+        resources.add(resource);
+    }
 
-        try {
-            File file = File.createTempFile(name, null);
+    public void createItem(String name, InputStream stream) {
 
-            try (InputStream input = stream) {
-                Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            }
-
-            Resource resource = new Resource(name, path, file);
-            resources.add(resource);
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
