@@ -1,4 +1,4 @@
-package me.pinkcandy.resourcesAPI.registry;
+package me.pinkcandy.resourcesAPI.packages;
 
 import me.pinkcandy.resourcesAPI.rpBuilder.BuildResourcePack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,30 +8,30 @@ import java.util.Map;
 
 public class PackageManagerImpl implements PackageManager {
 
-    private final Map<String, PackageImpl> packages = new HashMap<>();
+    private final Map<String, ResourcePackageImpl> packages = new HashMap<>();
 
     @Override
-    public Package createPackage(String name, JavaPlugin plugin) {
+    public ResourcePackage createPackage(String name, JavaPlugin plugin) {
         if (packages.containsKey(name)) {
             throw new IllegalArgumentException(
                     "Package already exists: " + name
             );
         }
 
-        PackageImpl pkg = new PackageImpl(name, plugin);
+        ResourcePackageImpl pkg = new ResourcePackageImpl(name, plugin);
         packages.put(name, pkg);
 
         return pkg;
     }
 
     @Override
-    public Package getPackage(String name) {
+    public ResourcePackage getPackage(String name) {
         return packages.get(name);
     }
 
     @Override
     public void buildPackage(String name) {
-        PackageImpl pkg = packages.get(name);
+        ResourcePackageImpl pkg = packages.get(name);
 
         if (pkg == null) {
             throw new IllegalArgumentException(

@@ -1,4 +1,4 @@
-package me.pinkcandy.resourcesAPI.registry;
+package me.pinkcandy.resourcesAPI.packages;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -11,13 +11,13 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PackageImpl implements Package {
+public class ResourcePackageImpl implements ResourcePackage {
 
     final String name;
     final JavaPlugin plugin;
     List<Resource> resources;
 
-    public PackageImpl(String name, JavaPlugin plugin) {
+    public ResourcePackageImpl(String name, JavaPlugin plugin) {
         this.name = name;
         this.plugin = plugin;
         this.resources = new ArrayList<>();

@@ -1,7 +1,7 @@
 package me.pinkcandy.resourcesAPI.rpBuilder;
 
-import me.pinkcandy.resourcesAPI.registry.PackageImpl;
-import me.pinkcandy.resourcesAPI.registry.Resource;
+import me.pinkcandy.resourcesAPI.packages.ResourcePackageImpl;
+import me.pinkcandy.resourcesAPI.packages.Resource;
 import me.pinkcandy.resourcesAPI.ResourcesAPI;
 import org.zeroturnaround.zip.ZipUtil;
 
@@ -11,7 +11,7 @@ import java.nio.file.Path;
 
 public class BuildResourcePack {
 
-    public static void BuildPackage(PackageImpl pkg){
+    public static void BuildPackage(ResourcePackageImpl pkg){
         Path mainPackFolder = ResourcesAPI.getInstance().getDataFolder().toPath().resolve("pack/assets/" + pkg.getName());
         try {
             Files.createDirectories(mainPackFolder);

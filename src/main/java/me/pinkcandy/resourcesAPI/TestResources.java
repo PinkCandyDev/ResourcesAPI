@@ -1,15 +1,15 @@
 package me.pinkcandy.resourcesAPI;
 
-import me.pinkcandy.resourcesAPI.registry.PackageManager;
-import me.pinkcandy.resourcesAPI.registry.Package;
-import me.pinkcandy.resourcesAPI.registry.Resource;
+
+import me.pinkcandy.resourcesAPI.packages.PackageManager;
+import me.pinkcandy.resourcesAPI.packages.ResourcePackage;
 
 public class TestResources {
 
     public TestResources() {
         PackageManager manager = ResourcesAPI.getInstance().getPackageManager();
 
-        Package pkg = manager.createPackage("resourcesapi", ResourcesAPI.getInstance());
+        ResourcePackage pkg = manager.createPackage("resourcesapi", ResourcesAPI.getInstance());
 
         pkg.insertFile(
                 "pack.png",

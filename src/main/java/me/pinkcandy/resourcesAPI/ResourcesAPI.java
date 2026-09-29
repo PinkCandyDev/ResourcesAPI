@@ -1,7 +1,7 @@
 package me.pinkcandy.resourcesAPI;
 
-import me.pinkcandy.resourcesAPI.registry.PackageManager;
-import me.pinkcandy.resourcesAPI.registry.PackageManagerImpl;
+import me.pinkcandy.resourcesAPI.packages.PackageManager;
+import me.pinkcandy.resourcesAPI.packages.PackageManagerImpl;
 import me.pinkcandy.resourcesAPI.rpBuilder.BuildResourcePack;
 import org.bukkit.plugin.java.JavaPlugin;
 

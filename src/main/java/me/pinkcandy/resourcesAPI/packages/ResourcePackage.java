@@ -1,12 +1,11 @@
-package me.pinkcandy.resourcesAPI.registry;
+package me.pinkcandy.resourcesAPI.packages;
 
-import org.bukkit.plugin.java.JavaPlugin;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.io.InputStream;
 import java.util.List;
 
-public interface Package {
+public interface ResourcePackage {
 
     public String getName();
     public List<Resource> getResources();
