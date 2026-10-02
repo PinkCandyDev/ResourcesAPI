@@ -29,6 +29,11 @@ public class TestResources {
                 ResourcesAPI.getInstance().getResource("models_item_pack.json")
         );
 
+        pkg.createItem(
+                "pack2",
+                ResourcesAPI.getInstance().getResource("pack.png")
+        );
+
         manager.buildPackage("resourcesapi");
 
 

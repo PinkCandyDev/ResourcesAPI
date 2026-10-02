@@ -1,6 +1,7 @@
 package me.pinkcandy.resourcesAPI.packages;
 
 import me.pinkcandy.resourcesAPI.StreamToFile;
+import me.pinkcandy.resourcesAPI.generateJsons.GenerateResources;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.InputStream;
@@ -33,6 +34,7 @@ public class ResourcePackageImpl implements ResourcePackage {
     }
 
     public void createItem(String name, InputStream stream) {
-
+        List<Resource> generatedResources = GenerateResources.generateResourcesForItemFromTexture(name, stream, this.name);
+        resources.addAll(generatedResources);
     }
 }
